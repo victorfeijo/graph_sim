@@ -1,5 +1,7 @@
 class Graph
 
+    attr_accessor :vertices, :edges
+    
     def initialize (vertices = [], edges = [])
         @vertices = vertices
         @edges = edges
