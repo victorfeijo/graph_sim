@@ -7,7 +7,7 @@ class Element
     end
 
     def show_element
-        puts "The element is #{@data}"
+        return @data
     end
 
     def is_number?
