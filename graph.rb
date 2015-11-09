@@ -83,3 +83,5 @@ puts graph.degree (v1)
 puts graph.rand_vertice.element.show_element
 graph.remove_vertice(v1)
 graph.show_connecteds
+
+#Implementar os teoremas matemáticos que definem os grafos como teste para ver se o grafo está correto!
