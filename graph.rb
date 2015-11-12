@@ -48,13 +48,25 @@ class Graph
         return vertices[index].adjacents.size
     end
 
-    def show_connecteds
-        vertices.each { |v|
-        v.adjacents.each_key { |a|
-        puts "#{v.element.show_element} <----> #{a.element.show_element} "
-            }
-         }
-     end
+    def isRegular
+        n = degree(rand_vertice)
+        @vertices.each { |v|
+            if degree(v) != n
+                return false;
+            end
+        }
+        return true;
+    end
+
+    def isComplete
+        n = order - 1
+        @vertices.each { |v|
+            if degree(v) != n
+                return false
+            end
+        }
+        return true
+    end
 
 end
 
@@ -68,18 +80,21 @@ v1 = Vertice.new(a)
 v2 = Vertice.new(b)
 v3 = Vertice.new(c)
 v4 = Vertice.new(d)
-graph = Graph.new([], true)
+graph = Graph.new([], false)
 graph.add_vertice(v1)
 graph.add_vertice(v2)
 graph.add_vertice(v3)
-graph.add_vertice(v4)
 graph.connect(v1, v2)
 graph.connect(v1, v3)
 graph.connect(v2, v3)
 
 puts graph.order
-graph.show_connecteds
 puts graph.degree (v1)
+puts graph.degree (v2)
+puts graph.degree (v3)
+
+graph.vertices.each { |v| v.adjacents.each_value { |a| puts a.weight }}
 puts graph.rand_vertice.element.show_element
 graph.remove_vertice(v1)
-graph.show_connecteds
+puts graph.isComplete
+puts graph.isRegular

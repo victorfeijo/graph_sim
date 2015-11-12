@@ -1,4 +1,5 @@
 load 'element.rb'
+load 'edge.rb'
 
 class Vertice
 
@@ -9,28 +10,21 @@ class Vertice
         @element = element
     end
 
+    #Cria uma aresta entre dois vértices
     def connect (adjacent, weight = 0)
-        create_connection(adjacent, weight) unless include_adjacent?(adjacent)
+        @adjacents[adjacent] = Edge.new(self, adjacent, weight)
     end
 
+    #Se ele contém esse adjacente, remove do hashMap
     def disconnect (adjacent)
         if include_adjacent? (adjacent)
             @adjacents.delete(adjacent)
         end
     end
 
-    def update_weight (adjacent, weight = 0)
-        if include_adjacent? (adjacent)
-            adjacents[adjacent] = weight
-        end
-    end
-
+    #Verifica se esta conectado com o adjacente
     def include_adjacent? (adjacent)
         @adjacents.has_key? (adjacent)
-    end
-
-    def create_connection(adjacent, weight)
-        @adjacents[adjacent] = weight
     end
 
 end
