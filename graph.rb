@@ -98,3 +98,4 @@ puts graph.rand_vertice.element.show_element
 graph.remove_vertice(v1)
 puts graph.isComplete
 puts graph.isRegular
+graph.show_connecteds
