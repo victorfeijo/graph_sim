@@ -1,4 +1,3 @@
-load 'element.rb'
 load 'edge.rb'
 
 class Vertice
